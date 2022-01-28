@@ -11,11 +11,11 @@ def watermark_with_transparency(input_image_path,
     watermark = Image.open(watermark_image_path).convert("RGBA")
     width, height = base_image.size
     mark_width, mark_height = watermark.size
-    position = (width-mark_width,height-mark_height) # put the watermark at the lower-right corner
+    position = (width-mark_width, height-mark_height) # put the watermark at the lower-right corner
 
  
-    transparent = Image.new('RGBA', (width, height), (0,0,0,0))
-    transparent.paste(base_image, (0,0))
+    transparent = Image.new('RGBA', (width, height), (0, 0, 0, 0))
+    transparent.paste(base_image, (0, 0))
     transparent.paste(watermark, position, mask=watermark)
     transparent.save(output_image_path)
 
